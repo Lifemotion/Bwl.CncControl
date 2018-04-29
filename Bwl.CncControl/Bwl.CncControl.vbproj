@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-<ProjectGuid>{1210325C-5FFA-4620-99E9-039EFE759142}</ProjectGuid>
+    <ProjectGuid>{1210325C-5FFA-4620-99E9-039EFE759142}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>Bwl.CncControl.My.MyApplication</StartupObject>
     <RootNamespace>Bwl.CncControl</RootNamespace>
@@ -52,13 +52,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include = "Bwl.Framework" >
-<HintPath>..\refs\bwl-framework\Bwl.Framework.dll</HintPath>
-</Reference>
-<Reference Include = "bwl.Network.ClientServer" >
-<HintPath>..\refs\bwl-framework\bwl.Network.ClientServer.dll</HintPath>
-</Reference>
-
+    <Reference Include="Bwl.Framework">
+      <HintPath>..\refs\bwl-framework\Bwl.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="bwl.Network.ClientServer">
+      <HintPath>..\refs\bwl-framework\bwl.Network.ClientServer.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -80,6 +79,13 @@
       <DependentUpon>App.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DirectControl.Designer.vb">
+      <DependentUpon>DirectControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DirectControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Machine\MachineController.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,6 +103,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App.resx">
+      <DependentUpon>App.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectControl.resx">
+      <DependentUpon>DirectControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
